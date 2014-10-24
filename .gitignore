@@ -1,0 +1,24 @@
+
+# compiled objects
+*.o
+*.lo
+*.la
+picos
+
+# autotools generated files
+Makefile.in
+Makefile
+aclocal.m4
+configure
+config.*
+libtool
+stamp-h1
+
+autom4te.cache/
+m4/l*
+scripts/
+
+.deps/
+.libs/
+
+.dirstamp
