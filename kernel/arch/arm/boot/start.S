@@ -1,4 +1,8 @@
 
+#ifdef HAVE_CONFIG_H
+#  include <config.h>
+#endif
+
 // To keep this in the first portion of the binary.
 .section ".text.boot"
 

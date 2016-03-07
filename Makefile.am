@@ -5,8 +5,18 @@ AUTOMAKE_OPTIONS = subdir-objects
 noinst_PROGRAMS = picos
 
 picos_SOURCES = \
-    kernel/boot/start.S \
-    kernel/main.c \
-    kernel/link/arm-eabi.ld
+    kernel/main.c
 
-picos_LDFLAGS = -T kernel/link/arm-eabi.ld
+if ARCH_ARM
+picos_SOURCES += \
+    kernel/arch/arm/boot/start.S
+
+picos_LDFLAGS = -T kernel/arch/arm/link/kernel.ld
+endif
+
+if ARCH_X86
+picos_SOURCES += \
+    kernel/arch/x86/boot/start.S
+
+picos_LDFLAGS = -T kernel/arch/x86/link/kernel.ld
+endif
