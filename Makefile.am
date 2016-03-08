@@ -8,15 +8,9 @@ picos_SOURCES = \
     kernel/main.c
 
 if ARCH_ARM
-picos_SOURCES += \
-    kernel/arch/arm/boot/start.S
-
-picos_LDFLAGS = -T kernel/arch/arm/link/kernel.ld
+include kernel/arch/arm/Makefile.am
 endif
 
 if ARCH_X86
-picos_SOURCES += \
-    kernel/arch/x86/boot/start.S
-
-picos_LDFLAGS = -T kernel/arch/x86/link/kernel.ld
+include kernel/arch/x86/Makefile.am
 endif
