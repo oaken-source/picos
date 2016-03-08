@@ -35,6 +35,7 @@ AX_APPEND_FLAG([-ffreestanding])
 # check for toolchain components
 AC_PROG_CC
 AM_PROG_AS
+AM_PROG_AR
 
 # identify target architecture
 AC_CANONICAL_HOST
@@ -59,6 +60,8 @@ AM_CONDITIONAL([ARCH_X86], [test x$arch = xx86])
 AX_CHECK_COMPILE_FLAG([-fno-delete-null-pointer-checks], [
   AX_APPEND_FLAG([-fno-delete-null-pointer-checks])
 ])
+
+LT_INIT
 
 AC_CONFIG_FILES([Makefile])
 
