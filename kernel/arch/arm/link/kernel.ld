@@ -22,8 +22,8 @@ ENTRY(_start)
 
 SECTIONS
 {
-    /* Starts at LOADER_ADDR. */
-    . = 0x10000;
+    /* load adress is configuration defined */
+
     __start = .;
     __text_start = .;
     .text :
@@ -53,8 +53,8 @@ SECTIONS
     __bss_start = .;
     .bss :
     {
-        bss = .;
         *(.bss)
+        *(.bss.stack)
     }
     . = ALIGN(4096); /* align to page size */
     __bss_end = .;
