@@ -57,7 +57,7 @@ _start:
   blo 1b
 
   // Setup the stack.
-  mov sp, $.stack_top
+  ldr sp, =.stack_top
 
   // Call kernel_main
   ldr r3, =kernel_main

@@ -26,4 +26,4 @@ picos_SOURCES += \
 EXTRA_picos_DEPENDENCIES = \
     %reldir%/link/kernel.ld
 
-picos_LDFLAGS = -T %reldir%/link/kernel.ld
+picos_LDFLAGS = -T $(srcdir)/%reldir%/link/kernel.ld
