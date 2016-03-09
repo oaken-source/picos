@@ -34,4 +34,8 @@ if ARCH_X86
 include kernel/arch/x86/Makefile.am
 endif
 
+if ARCH_AARCH64
+include kernel/arch/aarch64/Makefile.am
+endif
+
 picos_LDADD = -lgcc
