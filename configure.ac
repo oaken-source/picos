@@ -29,8 +29,8 @@ AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
 # add compile flags for freestanding binary
 AX_APPEND_FLAG([-nostdlib])
-AX_APPEND_FLAG([-nostartfiles])
 AX_APPEND_FLAG([-ffreestanding])
+AX_APPEND_FLAG([-fbuiltin])
 
 # check for toolchain components
 AC_PROG_CC
@@ -43,6 +43,9 @@ AC_CANONICAL_HOST
 case "$host_cpu" in
   arm)
     arch=arm
+    ;;
+  aarch64)
+    arch=aarch64
     ;;
   i[[34567]]86)
     arch=x86

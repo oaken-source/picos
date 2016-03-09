@@ -19,6 +19,7 @@
  #****************************************************************************#
 
 picos_SOURCES += \
+    %reldir%/boot/multiboot.S \
     %reldir%/boot/start.S \
     %reldir%/link/kernel.ld
 

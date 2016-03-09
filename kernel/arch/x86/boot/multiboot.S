@@ -18,46 +18,18 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ******************************************************************************/
 
-ENTRY(_start)
+#ifdef HAVE_CONFIG_H
+#  include <config.h>
+#endif
 
-SECTIONS
-{
-    /* load into beginning of high memory */
-    . = 0x1000000;
+.set MAGIC,    0x1BADB002
+.set FLAGS,    1<<1
+.set CHECKSUM, -(MAGIC + FLAGS)
 
-    __start = .;
-    __text_start = .;
-    .text :
-    {
-        KEEP(*(.text.multiboot))
-        *(.text)
-    }
-    . = ALIGN(0x1000);
-    __text_end = .;
+.section .text.multiboot
+.align 4
+.long MAGIC
+.long FLAGS
+.long CHECKSUM
 
-    __rodata_start = .;
-    .rodata :
-    {
-        *(.rodata)
-    }
-    . = ALIGN(0x1000);
-    __rodata_end = .;
 
-    __data_start = .;
-    .data :
-    {
-        *(.data)
-    }
-    . = ALIGN(0x1000);
-    __data_end = .;
-
-    __bss_start = .;
-    .bss :
-    {
-        *(.bss)
-        *(.bss.stack)
-    }
-    . = ALIGN(0x1000);
-    __bss_end = .;
-    __end = .;
-}

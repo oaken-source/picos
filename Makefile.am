@@ -33,3 +33,5 @@ endif
 if ARCH_X86
 include kernel/arch/x86/Makefile.am
 endif
+
+picos_LDADD = -lgcc
